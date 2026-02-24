@@ -1,4 +1,4 @@
-# RDTR Binary Encoding Specification v0.1
+# RDTR Binary Encoding Specification
 
 ## Message Header (6 bytes)
 

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RDTR — Remote Declarative Terminal Runtime</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #0f111a;
+      color: #e6edf3;
+      line-height: 1.6;
+    }
+    header {
+      padding: 80px 20px;
+      text-align: center;
+    }
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+    h2 {
+      margin-top: 60px;
+      color: #58a6ff;
+    }
+    section {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 20px 60px 20px;
+    }
+    .tagline {
+      font-size: 1.3rem;
+      color: #9da7b3;
+    }
+    .code {
+      background: #161b22;
+      padding: 20px;
+      border-radius: 8px;
+      font-family: monospace;
+      overflow-x: auto;
+    }
+    .cta {
+      margin-top: 40px;
+    }
+    .button {
+      display: inline-block;
+      background: #238636;
+      color: white;
+      padding: 12px 20px;
+      text-decoration: none;
+      border-radius: 6px;
+      margin-right: 10px;
+    }
+    footer {
+      text-align: center;
+      padding: 40px;
+      color: #8b949e;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>RDTR</h1>
+  <p class="tagline">
+    Remote Declarative Terminal Runtime<br>
+    Deterministic. Secure. Keyboard-First.
+  </p>
+  <div class="cta">
+    <a class="button" href="https://github.com/RDTR-org/spec.git">View on GitHub</a>
+    <a class="button" style="background:#30363d" href="rdtr-vs-html">RDTR vs HTML</a>
+  </div>
+</header>
+
+<section>
+  <h2>What is RDTR?</h2>
+  <p>
+    RDTR is a deterministic, WASM-powered runtime for building remote terminal user interfaces.
+    It replaces HTML, CSS, and JavaScript with:
+  </p>
+  <ul>
+    <li>Declarative layout trees</li>
+    <li>Constraint-based layout engine</li>
+    <li>Overlay stack system</li>
+    <li>Sandboxed WASM execution</li>
+    <li>Binary protocol over QUIC</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Why RDTR?</h2>
+  <p>
+    Browsers are too heavy for terminal-native interfaces.
+    Traditional TUIs are imperative and stateful.
+    RDTR provides:
+  </p>
+  <ul>
+    <li>Deterministic rendering</li>
+    <li>Validated mutation model</li>
+    <li>Secure execution boundary</li>
+    <li>Minimal surface area</li>
+    <li>Keyboard-first UX</li>
+  </ul>
+</section>
+
+<section>
+  <h2>How It Works</h2>
+  <div class="code">
+BaseLayoutTree + OverlayStack + TerminalSize
+= Deterministic Frame
+
+WASM → MutationOps → Engine → Layout → Diff → Terminal
+  </div>
+</section>
+
+<section id="spec">
+  <h2>Specification</h2>
+  <p>
+    RDTR is defined as a formal specification including:
+  </p>
+  <ul>
+    <li>Binary encoding standard</li>
+    <li>Layout resolution algorithm</li>
+    <li>Overlay positioning model</li>
+    <li>WASM host API</li>
+    <li>Compliance test suite</li>
+  </ul>
+  <p>
+    Version 0.1 Draft available now.
+  </p>
+</section>
+
+<footer>
+  RDTR v0.1 — Open Specification<br>
+  Deterministic UI for Terminal-Native Systems
+</footer>
+
+</body>
+</html>

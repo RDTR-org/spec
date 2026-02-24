@@ -1,4 +1,4 @@
-# RDTR Compliance Specification v0.1
+# RDTR Compliance Specification
 
 ## Layout Tests
 

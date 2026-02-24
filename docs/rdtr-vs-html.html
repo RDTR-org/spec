@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RDTR vs HTML</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        :root {
+            --bg: #0f172a;
+            --card: #111827;
+            --text: #e5e7eb;
+            --muted: #9ca3af;
+            --accent: #3b82f6;
+            --border: #1f2937;
+        }
+
+        body {
+            margin: 0;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        h1, h2 {
+            color: white;
+        }
+
+        h1 {
+            font-size: 2.4rem;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            margin-top: 50px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 8px;
+        }
+
+        p {
+            color: var(--muted);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background: var(--card);
+            border: 1px solid var(--border);
+        }
+
+        th, td {
+            padding: 14px;
+            border-bottom: 1px solid var(--border);
+            text-align: left;
+        }
+
+        th {
+            background: #0b1220;
+            color: white;
+        }
+
+        ul {
+            margin-top: 10px;
+            color: var(--muted);
+        }
+
+        .highlight {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .summary {
+            background: var(--card);
+            padding: 20px;
+            border: 1px solid var(--border);
+            margin-top: 30px;
+            border-radius: 8px;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            margin-top: 80px;
+            font-size: 0.9rem;
+            color: var(--muted);
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <h1>RDTR vs HTML</h1>
+    <p>
+        This document explains how <span class="highlight">RDTR</span> differs from the traditional web stack.
+    </p>
+
+    <h2>1. Architectural Philosophy</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Concept</th>
+                <th>HTML Stack</th>
+                <th>RDTR</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Layout</td>
+                <td>CSS-based, cascading</td>
+                <td>Constraint-based, no cascade</td>
+            </tr>
+            <tr>
+                <td>Styling</td>
+                <td>CSS</td>
+                <td>None</td>
+            </tr>
+            <tr>
+                <td>Scripting</td>
+                <td>JavaScript</td>
+                <td>Sandboxed WASM</td>
+            </tr>
+            <tr>
+                <td>Rendering</td>
+                <td>Browser engine</td>
+                <td>Deterministic runtime</td>
+            </tr>
+            <tr>
+                <td>Protocol</td>
+                <td>HTTP (text)</td>
+                <td>Binary over QUIC</td>
+            </tr>
+            <tr>
+                <td>Positioning</td>
+                <td>Arbitrary, absolute allowed</td>
+                <td>No absolute positioning</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>2. Complexity Model</h2>
+
+    <h3>HTML</h3>
+    <ul>
+        <li>DOM tree</li>
+        <li>CSS cascade</li>
+        <li>Event bubbling</li>
+        <li>Reflow + repaint</li>
+        <li>Implicit layout dependencies</li>
+    </ul>
+
+    <h3>RDTR</h3>
+    <ul>
+        <li>Layout tree</li>
+        <li>Overlay stack</li>
+        <li>Explicit mutation operations</li>
+        <li>Deterministic resolution</li>
+        <li>No hidden layout state</li>
+    </ul>
+
+    <h2>3. Security Surface</h2>
+
+    <h3>HTML</h3>
+    <ul>
+        <li>XSS</li>
+        <li>CSP complexity</li>
+        <li>DOM injection</li>
+        <li>CSS side channels</li>
+    </ul>
+
+    <h3>RDTR</h3>
+    <ul>
+        <li>WASM sandbox</li>
+        <li>Validated mutation model</li>
+        <li>No runtime code injection</li>
+        <li>No styling layer</li>
+    </ul>
+
+    <h2>4. Rendering Guarantees</h2>
+
+    <h3>HTML</h3>
+    <ul>
+        <li>Layout depends on browser heuristics</li>
+        <li>Rendering differences between engines</li>
+    </ul>
+
+    <h3>RDTR</h3>
+    <ul>
+        <li>Rendering must be deterministic</li>
+        <li>Compliance test suite enforces correctness</li>
+    </ul>
+
+    <h2>5. Network Model</h2>
+
+    <h3>HTML</h3>
+    <ul>
+        <li>Text-based</li>
+        <li>Verbose</li>
+        <li>Implicit state</li>
+    </ul>
+
+    <h3>RDTR</h3>
+    <ul>
+        <li>Compact binary frames</li>
+        <li>Explicit event → mutation cycle</li>
+        <li>Deterministic replay possible</li>
+    </ul>
+
+    <h2>6. Intended Use</h2>
+
+    <h3>HTML</h3>
+    <ul>
+        <li>General purpose UI system</li>
+        <li>Consumer web</li>
+    </ul>
+
+    <h3>RDTR</h3>
+    <ul>
+        <li>Secure terminal interfaces</li>
+        <li>Remote-first systems</li>
+        <li>Infrastructure dashboards</li>
+        <li>SSH-native tools</li>
+    </ul>
+
+    <h2>7. Summary</h2>
+
+    <div class="summary">
+        <p>
+            RDTR is <strong>not</strong> a replacement for the browser.
+        </p>
+        <p>
+            It is a structured, deterministic runtime for terminal-native environments.
+        </p>
+        <p>
+            HTML optimizes for <strong>flexibility</strong>.  
+            RDTR optimizes for <strong>determinism and safety</strong>.
+        </p>
+    </div>
+
+    <footer>
+        © 2026 RDTR Project
+    </footer>
+
+</div>
+
+</body>
+</html>

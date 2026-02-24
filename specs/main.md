@@ -1,7 +1,8 @@
 # RDTR v0.1 Specification
+
 Remote Declarative Terminal Runtime
 Status: Draft
-Generated: 2026-02-22T19:46:15.171470 UTC
+Generated: 2026-02-22
 
 ---
 
@@ -10,6 +11,7 @@ Generated: 2026-02-22T19:46:15.171470 UTC
 RDTR defines a deterministic, declarative, keyboard-first terminal UI runtime.
 
 It provides:
+
 - Layout Tree Model
 - Overlay System
 - Mutation Model
@@ -18,6 +20,7 @@ It provides:
 - Deterministic Rendering Guarantee
 
 RDTR intentionally excludes:
+
 - Styling systems (no CSS equivalent)
 - Arbitrary coordinate rendering
 - Mouse input (v0)
@@ -44,6 +47,7 @@ Node {
 }
 
 NodeKind:
+
 - Container
 - Text
 - Input
@@ -86,6 +90,11 @@ WASM returns MutationOps:
 
 Engine MUST validate tree integrity.
 
+- No cycles
+- No orphan node IDs
+- No duplicate IDs
+- No mutation outside tree
+
 ---
 
 ## 6. WASM Model
@@ -112,3 +121,33 @@ Engine MUST validate tree integrity.
 
 Binary, length-prefixed messages.
 Encrypted transport required (e.g., QUIC/TLS).
+
+## 9. Layout Resolution Algorithm
+
+### Axis Resolution
+
+### Size Allocation
+
+### Grow Distribution
+
+### Shrink Distribution
+
+### Rounding Rule
+
+### Deterministic Ordering
+
+## 10. Focus Model
+
+Current focus:
+
+- Depth-first
+- Overlay-topmost-first
+- Deterministic on structural equality
+
+### Focusable Node Definition
+
+### Traversal Order
+
+### Overlay Focus Precedence
+
+### Focus Restoration
